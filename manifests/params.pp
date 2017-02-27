@@ -6,9 +6,9 @@ class diamond::params {
     default: { $package_name = 'diamond' }
   }
   $package_ensure = 'present'
-  $user = 'diamond'
+  $user = 'root'
   $user_ensure = 'present'
-  $group = 'diamond'
+  $group = 'root'
   $group_ensure = 'present'
   $conf_dir = '/etc/diamond'
   $directory_ensure = 'directory'
