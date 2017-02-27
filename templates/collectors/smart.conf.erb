@@ -1,0 +1,18 @@
+#[[<%= @collector_name %>]]
+enabled = <%= @enabled %>
+<% if @bin -%>bin = <%= @bin %>
+<% end -%>
+<% if @byte_unit -%>byte_unit = <%= @byte_unit %>
+<% end -%>
+<% if @devices -%>devices = <%= @devices %>
+<% end -%>
+<% if @measure_collector_time -%>measure_collector_time = <%= @measure_collector_time %>
+<% end -%>
+<% if @metrics_blacklist -%>metrics_blacklist = <%= @metrics_blacklist %>
+<% end -%>
+<% if @metrics_whitelist -%>metrics_whitelist = <%= @metrics_whitelist %>
+<% end -%>
+<% if @sudo_cmd -%>sudo_cmd = <%= @sudo_cmd %>
+<% end -%>
+<% if @use_sudo -%>use_sudo = <%= @use_sudo %>
+<% end -%>
