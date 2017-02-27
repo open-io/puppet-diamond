@@ -1,0 +1,14 @@
+#[[<%= @collector_name %>]]
+enabled = <%= @enabled %>
+<% if @measure_collector_time -%>measure_collector_time = <%= @measure_collector_time %>
+<% end -%>
+<% if @metrics_blacklist -%>metrics_blacklist = <%= @metrics_blacklist %>
+<% end -%>
+<% if @metrics_whitelist -%>metrics_whitelist = <%= @metrics_whitelist %>
+<% end -%>
+<% if @normalize -%>normalize = <%= @normalize %>
+<% end -%>
+<% if @percore -%>percore = <%= @percore %>
+<% end -%>
+<% if @simple -%>simple = <%= @simple %>
+<% end -%>
