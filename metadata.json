@@ -1,0 +1,33 @@
+{
+  "name": "openio-diamond",
+  "version": "0.0.1",
+  "author": "Romain Acciari",
+  "summary": "Puppet module for Diamond monitoring tool",
+  "license": "Apache-2.0",
+  "source": "https://github.com/open-io/puppet-diamond",
+  "project_page": "http://www.github.com/open-io/puppet-diamond",
+  "issues_url": "https://github.com/open-io/puppet-diamond/issues",
+  "tags": [ "python-diamond", "diamond", "monitoring" ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [ "7" ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [ "7" ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [ "8" ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [ "16.04" ]
+    }
+  ],
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 4.6.0 <5.0.0"}
+  ]
+}
+

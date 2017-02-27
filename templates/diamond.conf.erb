@@ -1,0 +1,47 @@
+[server]
+handlers = <%= @handlers %>
+user = <%= @user %>
+group = <%= @group %>
+pid_file = <%= @pid_file %>
+collectors_path = <%= @collectors_path %>
+collectors_config_path = <%= @collectors_config_path %>
+<% if @collectors_load_delay -%>
+collectors_load_delay = <%= @collectors_load_delay %>
+<% end -%>
+handlers_config_path = <%= @handlers_config_path %>
+handlers_path = <%= @handlers_path %>
+metric_queue_size = <%= @metric_queue_size %>
+[collectors]
+[[default]]
+<% @collectors_default.keys.sort.each do |key| -%>
+<%= key %>=<%= @collectors_default[key] %>
+<% end -%>
+
+[handlers]
+keys = rotated_file
+[[default]]
+
+[loggers]
+<% @loggers.keys.sort.each do |key| -%>
+<%= key %>=<%= @loggers[key] %>
+<% end -%>
+
+[formatters]
+<% @formatters.keys.sort.each do |key| -%>
+<%= key %>=<%= @formatters[key] %>
+<% end -%>
+
+[logger_root]
+<% @logger_root.keys.sort.each do |key| -%>
+<%= key %>=<%= @logger_root[key] %>
+<% end -%>
+
+[handler_rotated_file]
+<% @handler_rotated_file.keys.sort.each do |key| -%>
+<%= key %>=<%= @handler_rotated_file[key] %>
+<% end -%>
+
+[formatter_default]
+<% @formatter_default.keys.sort.each do |key| -%>
+<%= key %>=<%= @formatter_default[key] %>
+<% end -%>
