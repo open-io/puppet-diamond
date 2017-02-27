@@ -7,8 +7,14 @@ class diamond::collectors::openiosds (
 
   include ::diamond
 
+  case $::os['family'] {
+    'Debian': { $openiosds_package_name = 'openio-sds' }
+    'RedHat': { $openiosds_package_name = 'openio-sds-common' }
+    default: { $openiosds_package_name = 'openio-sds' }
+  }
+
   #ensure_packages(["${::diamond::package_name}-openio"],{'ensure' => ${::diamond::package_ensure}})
-  ensure_packages(["${::diamond::package_name}-openio"])
+  ensure_packages(["${::diamond::package_name}-openio",$openiosds_package_name])
 
   file {"${::diamond::collectors_config_path}/${collector_name}.conf":
     ensure  => $::diamond::file_ensure,

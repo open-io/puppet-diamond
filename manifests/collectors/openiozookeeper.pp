@@ -6,8 +6,14 @@ class diamond::collectors::openiozookeeper (
 
   include ::diamond
 
+  case $::os['family'] {
+    'Debian': { $zookeeper_package_name = 'python-zookeeper' }
+    'RedHat': { $zookeeper_package_name = 'python-ZooKeeper' }
+    default: { $zookeeper_package_name = 'python-zookeeper' }
+  }
+
   #ensure_packages(["${::diamond::package_name}-openio"],{'ensure' => ${::diamond::package_ensure}})
-  ensure_packages(["${::diamond::package_name}-openio"])
+  ensure_packages(["${::diamond::package_name}-openio",$zookeeper_package_name])
 
   file {"${::diamond::collectors_config_path}/${collector_name}.conf":
     ensure  => $::diamond::file_ensure,

@@ -6,8 +6,14 @@ class diamond::collectors::openiobeanstalkd (
 
   include ::diamond
 
+  case $::os['family'] {
+    'Debian': { $beanstalkc_package_name = 'python-beanstalkc' }
+    'RedHat': { $beanstalkc_package_name = 'beanstalkc' }
+    default: { $beanstalkc_package_name = 'python-beanstalkc' }
+  }
+
   #ensure_packages(["${::diamond::package_name}-openio"],{'ensure' => ${::diamond::package_ensure}})
-  ensure_packages(["${::diamond::package_name}-openio"])
+  ensure_packages(["${::diamond::package_name}-openio",$beanstalkc_package_name])
 
   file {"${::diamond::collectors_config_path}/${collector_name}.conf":
     ensure  => $::diamond::file_ensure,

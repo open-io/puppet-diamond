@@ -7,7 +7,7 @@ class diamond::collectors::openioredis (
   include ::diamond
 
   #ensure_packages(["${::diamond::package_name}-openio"],{'ensure' => ${::diamond::package_ensure}})
-  ensure_packages(["${::diamond::package_name}-openio"])
+  ensure_packages(["${::diamond::package_name}-openio",'python-redis'])
 
   file {"${::diamond::collectors_config_path}/${collector_name}.conf":
     ensure  => $::diamond::file_ensure,
